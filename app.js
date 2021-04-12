@@ -51,7 +51,7 @@ class App{
 			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
                 if (supported){
-                    const collection = document.getElementsByClassName("ar-button");
+                    const collection = document.getElementsByClassName("ar-ui-element");
                     [...collection].forEach( el => {
                         el.style.display = 'block';
                     });
