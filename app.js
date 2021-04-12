@@ -82,19 +82,21 @@ class App{
         // this.controller.addEventListener( 'select', onSelect );
         
         // this.scene.add( this.controller );
-        renderer.domElement.addEventListener('touchstart', function(e){
+        let touchDown, touchX, touchY, deltaX, deltaY;
+
+        this.renderer.domElement.addEventListener('touchstart', function(e){
             e.preventDefault();
-            touchDown=true;
+            touchDown = true;
             touchX = e.touches[0].pageX;
             touchY = e.touches[0].pageY;
         }, false);
 
-        renderer.domElement.addEventListener('touchend', function(e){
+        this.renderer.domElement.addEventListener('touchend', function(e){
             e.preventDefault();
             touchDown = false;
         }, false);
 
-        renderer.domElement.addEventListener('touchmove', function(e){
+        this.renderer.domElement.addEventListener('touchmove', function(e){
             e.preventDefault();
             
             if(!touchDown){
@@ -109,8 +111,6 @@ class App{
             rotateObject();
 
         }, false);
-
-        var touchDown, touchX, touchY, deltaX, deltaY;
 
         function rotateObject(){
             console.log('rotate');
