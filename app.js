@@ -2,6 +2,7 @@ import * as THREE from '/libs/three/three.module.js';
 import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
+import { OrbitControls } from 'libs/three/jsm/OrbitControls.js';
 
 class App{
 	constructor(){
@@ -29,6 +30,13 @@ class App{
 		container.appendChild( this.renderer.domElement );
         this.setEnvironment();
 
+        this.controls = new OrbitControls(camera, renderer.domElement);
+		this.controls.addEventListener('change', render);
+		this.controls.minDistance = 2;
+		this.controls.maxDistance = 10;
+		this.controls.target.set(0, 0, -0.2);
+		this.controls.enableDamping = true;
+		this.controls.dampingFactor = 0.05;
         
         this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
@@ -41,51 +49,7 @@ class App{
         
         this.setupXR();
 		
-		window.addEventListener('resize', this.resize.bind(this) );
-
-        //start here
-        let touchDown, touchX, touchY, deltaX, deltaY;
-
-        this.renderer.domElement.addEventListener('touchstart', function(e){
-            console.log('touch start');
-            e.preventDefault();
-            touchDown = true;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-        }, false);
-
-        this.renderer.domElement.addEventListener('touchend', function(e){
-            console.log('touchend');
-            e.preventDefault();
-            touchDown = false;
-        }, false);
-
-        this.renderer.domElement.addEventListener('touchmove', function(e){
-            console.log('touchmove');
-            e.preventDefault();
-            
-            if(!touchDown){
-                return;
-            }
-
-            deltaX = e.touches[0].pageX - touchX;
-            deltaY = e.touches[0].pageY - touchY;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-
-            rotateObject();
-
-        }, false);
-
-        function rotateObject(){
-            console.log('rotate');
-            if(self.chair){
-                self.chair.rotation.y += deltaX / 100;
-            }
-        }
-
-        //end here
-        
+		window.addEventListener('resize', this.resize.bind(this) );        
 	}
     
     setupXR(){
@@ -126,7 +90,46 @@ class App{
         // this.controller.addEventListener( 'select', onSelect );
         
         // this.scene.add( this.controller );
-        
+  
+        let touchDown, touchX, touchY, deltaX, deltaY;
+
+        this.renderer.domElement.addEventListener('touchstart', function(e){
+            console.log('touch start');
+            e.preventDefault();
+            touchDown = true;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+        }, false);
+
+        this.renderer.domElement.addEventListener('touchend', function(e){
+            console.log('touchend');
+            e.preventDefault();
+            touchDown = false;
+        }, false);
+
+        this.renderer.domElement.addEventListener('touchmove', function(e){
+            console.log('touchmove');
+            e.preventDefault();
+            
+            if(!touchDown){
+                return;
+            }
+
+            deltaX = e.touches[0].pageX - touchX;
+            deltaY = e.touches[0].pageY - touchY;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+
+            rotateObject();
+
+        }, false);
+
+        function rotateObject(){
+            console.log('rotate');
+            if(self.chair){
+                self.chair.rotation.y += deltaX / 100;
+            }
+        }
     }
 	
     resize(){
