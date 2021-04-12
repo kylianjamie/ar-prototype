@@ -77,48 +77,11 @@ class App{
         document.getElementById('place-button').addEventListener("click", onSelect);
 
         // Controller (gestures)
-        this.controller = this.renderer.xr.getController( 0 );
-        // this.controller.addEventListener( 'select', onSelect );
+        // this.controller = this.renderer.xr.getController( 0 );
+        // // this.controller.addEventListener( 'select', onSelect );
         
-        this.scene.add( this.controller );
+        // this.scene.add( this.controller );
   
-        let touchDown, touchX, touchY, deltaX, deltaY;
-
-        this.renderer.domElement.addEventListener('touchstart', function(e){
-            console.log('touch start');
-            e.preventDefault();
-            touchDown = true;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-        }, false);
-
-        this.renderer.domElement.addEventListener('touchend', function(e){
-            console.log('touchend');
-            e.preventDefault();
-            touchDown = false;
-        }, false);
-
-        this.renderer.domElement.addEventListener('touchmove', function(e){
-            e.preventDefault();
-            
-            if(!touchDown){
-                return;
-            }
-
-            deltaX = e.touches[0].pageX - touchX;
-            deltaY = e.touches[0].pageY - touchY;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-
-            rotateObject();
-
-        }, false);
-
-        function rotateObject(){
-            if(self.chair){
-                self.chair.rotation.y += deltaX / 100;
-            }
-        }
     }
 	
     resize(){
@@ -234,6 +197,45 @@ class App{
             currentSession.end();
 
         }
+
+        let touchDown, touchX, touchY, deltaX, deltaY;
+
+        this.renderer.domElement.addEventListener('touchstart', function(e){
+            console.log('touch start');
+            e.preventDefault();
+            touchDown = true;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+        }, false);
+
+        this.renderer.domElement.addEventListener('touchend', function(e){
+            console.log('touchend');
+            e.preventDefault();
+            touchDown = false;
+        }, false);
+
+        this.renderer.domElement.addEventListener('touchmove', function(e){
+            e.preventDefault();
+            
+            if(!touchDown){
+                return;
+            }
+
+            deltaX = e.touches[0].pageX - touchX;
+            deltaY = e.touches[0].pageY - touchY;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+
+            rotateObject();
+
+        }, false);
+
+        function rotateObject(){
+            if(self.chair){
+                self.chair.rotation.y += deltaX / 100;
+            }
+        }
+
     }
     
     requestHitTestSource(){
