@@ -27,6 +27,10 @@
         <button type="button" id="place-button">Place</button>
     </div>
 
+    <div class="container">
+        <button class="ar-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="window.app.showChair(1);">Bekijk in AR</button>
+    </div>
+
     <script type="module">
         import { App } from './app.js';
 
@@ -35,10 +39,6 @@
             window.app = app;
         });
     </script>
-  <!-- Navigation -->
-    <div class="container">
-        <button class="ar-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="window.app.showChair(1);">Bekijk in AR</button>
-    </div>
 </body>
 
 </html>
