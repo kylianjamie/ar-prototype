@@ -51,7 +51,7 @@ class App{
 			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
                 if (supported){
-                    const collection = document.getElementsByClassName("ar-ui-element");
+                    const collection = document.getElementsByClassName("ar-button");
                     [...collection].forEach( el => {
                         el.style.display = 'flex';
                     });
@@ -205,7 +205,7 @@ class App{
        
             currentSession = session;
 
-            document.getElementById("place-button").style.display = "block";
+            document.getElementById("ui").style.display = "flex";
             
         }
 
@@ -220,7 +220,7 @@ class App{
                 self.chair = null;
             }
 
-            document.getElementById("place-button").style.display = "none";
+            document.getElementById("ui").style.display = "none";
             
             self.renderer.setAnimationLoop( null );
 
