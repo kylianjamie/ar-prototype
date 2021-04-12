@@ -30,7 +30,7 @@ class App{
 		container.appendChild( this.renderer.domElement );
         this.setEnvironment();
 
-        this.controls = new OrbitControls(camera, renderer.domElement);
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 		this.controls.addEventListener('change', render);
 		this.controls.minDistance = 2;
 		this.controls.maxDistance = 10;
