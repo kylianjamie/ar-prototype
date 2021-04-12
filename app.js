@@ -76,11 +76,11 @@ class App{
 
         document.getElementById('place-button').addEventListener("click", onSelect);
 
-        // Controller (gestures)
-        // this.controller = this.renderer.xr.getController( 0 );
+        Controller (gestures)
+        this.controller = this.renderer.xr.getController( 0 );
         // this.controller.addEventListener( 'select', onSelect );
         
-        // this.scene.add( this.controller );
+        this.scene.add( this.controller );
   
         let touchDown, touchX, touchY, deltaX, deltaY;
 
@@ -99,7 +99,6 @@ class App{
         }, false);
 
         this.renderer.domElement.addEventListener('touchmove', function(e){
-            console.log('touchmove');
             e.preventDefault();
             
             if(!touchDown){
@@ -116,7 +115,6 @@ class App{
         }, false);
 
         function rotateObject(){
-            console.log('rotate');
             if(self.chair){
                 self.chair.rotation.y += deltaX / 100;
             }
