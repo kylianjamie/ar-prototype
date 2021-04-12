@@ -148,8 +148,13 @@ class App{
         let currentSession = null;
         const self = this;
         
-        const sessionInit = { requiredFeatures: [ 'hit-test' ] };
-        
+        let uiElement = document.getElementById('ui');
+
+        const sessionInit = {
+            requiredFeatures: [ 'hit-test' ],
+            optionalFeatures: ['dom-overlay'],
+            domOverlay: { root: uiElement }
+        };
         
         function onSessionStarted( session ) {
 
