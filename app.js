@@ -85,7 +85,7 @@ class App{
         // this.scene.add( this.controller );
         this.gestures = new ControllerGestures( this.renderer );
         this.gestures.addEventListener( 'pan', (ev)=>{
-            //console.log( ev ); 
+            console.log( ev ); 
             if (ev.initialise !== undefined){
                 self.startQuaternion = self.chair.object.quaternion.clone();
             }else{
