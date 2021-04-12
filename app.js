@@ -53,7 +53,7 @@ class App{
                 if (supported){
                     const collection = document.getElementsByClassName("ar-ui-element");
                     [...collection].forEach( el => {
-                        el.style.display = 'block';
+                        el.style.display = 'flex';
                     });
                 }
 			} );
