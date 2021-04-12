@@ -2,7 +2,7 @@ import * as THREE from '/libs/three/three.module.js';
 import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
-import { ControllerGestures } from '/libs/three/jsm/ControllerGestures.js';
+import { ControllerGestures } from '/libs/three/ControllerGestures.js';
 
 class App{
 	constructor(){
