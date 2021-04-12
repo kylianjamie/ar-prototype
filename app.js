@@ -75,10 +75,13 @@ class App{
             }
         }
 
-        this.controller = this.renderer.xr.getController( 0 );
-        this.controller.addEventListener( 'select', onSelect );
         
-        this.scene.add( this.controller );
+
+        // Controller (gestures)
+        // this.controller = this.renderer.xr.getController( 0 );
+        // this.controller.addEventListener( 'select', onSelect );
+        
+        // this.scene.add( this.controller );
     }
 	
     resize(){
