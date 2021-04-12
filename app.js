@@ -84,7 +84,7 @@ class App{
   
         let touchDown, touchX, touchY, deltaX, deltaY;
 
-        uiElement.addEventListener('touchstart', function(e){
+        this.uiElement.addEventListener('touchstart', function(e){
             console.log('touch start');
             e.preventDefault();
             touchDown = true;
@@ -92,13 +92,13 @@ class App{
             touchY = e.touches[0].pageY;
         }, false);
 
-        uiElement.addEventListener('touchend', function(e){
+        this.uiElement.addEventListener('touchend', function(e){
             console.log('touchend');
             e.preventDefault();
             touchDown = false;
         }, false);
 
-        uiElement.addEventListener('touchmove', function(e){
+        this.uiElement.addEventListener('touchmove', function(e){
             e.preventDefault();
             
             if(!touchDown){
