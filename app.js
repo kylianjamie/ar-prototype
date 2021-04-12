@@ -82,7 +82,43 @@ class App{
         
         // this.scene.add( this.controller );
   
-        
+        let touchDown, touchX, touchY, deltaX, deltaY;
+
+        self.renderer.domElement.addEventListener('touchstart', function(e){
+            console.log('touch start');
+            e.preventDefault();
+            touchDown = true;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+        }, false);
+
+        self.renderer.domElement.addEventListener('touchend', function(e){
+            console.log('touchend');
+            e.preventDefault();
+            touchDown = false;
+        }, false);
+
+        self.renderer.domElement.addEventListener('touchmove', function(e){
+            e.preventDefault();
+            
+            if(!touchDown){
+                return;
+            }
+
+            deltaX = e.touches[0].pageX - touchX;
+            deltaY = e.touches[0].pageY - touchY;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+
+            rotateObject();
+
+        }, false);
+
+        function rotateObject(){
+            if(self.chair){
+                self.chair.rotation.y += deltaX / 100;
+            }
+        }
     }
 	
     resize(){
@@ -159,44 +195,6 @@ class App{
             domOverlay: { root: uiElement }
         };
         
-        let touchDown, touchX, touchY, deltaX, deltaY;
-
-        uiElement.addEventListener('touchstart', function(e){
-            console.log('touch start');
-            e.preventDefault();
-            touchDown = true;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-        }, false);
-
-        uiElement.addEventListener('touchend', function(e){
-            console.log('touchend');
-            e.preventDefault();
-            touchDown = false;
-        }, false);
-
-        uiElement.addEventListener('touchmove', function(e){
-            e.preventDefault();
-            
-            if(!touchDown){
-                return;
-            }
-
-            deltaX = e.touches[0].pageX - touchX;
-            deltaY = e.touches[0].pageY - touchY;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-
-            rotateObject();
-
-        }, false);
-
-        function rotateObject(){
-            if(self.chair){
-                self.chair.rotation.y += deltaX / 100;
-            }
-        }
-
         function onSessionStarted( session ) {
 
             session.addEventListener( 'end', onSessionEnded );
