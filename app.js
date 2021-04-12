@@ -2,7 +2,6 @@ import * as THREE from '/libs/three/three.module.js';
 import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
-import { ControllerGestures } from '/libs/ControllerGestures.js';
 
 class App{
 	constructor(){
@@ -83,16 +82,42 @@ class App{
         // this.controller.addEventListener( 'select', onSelect );
         
         // this.scene.add( this.controller );
-        this.gestures = new ControllerGestures( this.renderer );
-        this.gestures.addEventListener( 'pan', (ev)=>{
-            console.log( ev ); 
-            if (ev.initialise !== undefined){
-                self.startQuaternion = self.chair.object.quaternion.clone();
-            }else{
-                self.chair.object.quaternion.copy( self.startQuaternion );
-                self.chair.object.rotateY( ev.theta );
+        renderer.domElement.addEventListener('touchstart', function(e){
+            e.preventDefault();
+            touchDown=true;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+        }, false);
+
+        renderer.domElement.addEventListener('touchend', function(e){
+            e.preventDefault();
+            touchDown = false;
+        }, false);
+
+        renderer.domElement.addEventListener('touchmove', function(e){
+            e.preventDefault();
+            
+            if(!touchDown){
+                return;
             }
-        });
+
+            deltaX = e.touches[0].pageX - touchX;
+            deltaY = e.touches[0].pageY - touchY;
+            touchX = e.touches[0].pageX;
+            touchY = e.touches[0].pageY;
+
+            rotateObject();
+
+        }, false);
+
+        var touchDown, touchX, touchY, deltaX, deltaY;
+
+        function rotateObject(){
+            console.log('rotate');
+            if(self.chair){
+                self.chair.rotation.y += deltaX / 100;
+            }
+        }
     }
 	
     resize(){
@@ -133,7 +158,6 @@ class App{
 			`chair${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-
 				self.scene.add( gltf.scene );
                 self.chair = gltf.scene;
         
