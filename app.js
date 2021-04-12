@@ -2,6 +2,7 @@ import * as THREE from '/libs/three/three.module.js';
 import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
+import { ControllerGestures } from '/libs/three/jsm/ControllerGestures.js';
 
 class App{
 	constructor(){
@@ -82,6 +83,16 @@ class App{
         // this.controller.addEventListener( 'select', onSelect );
         
         // this.scene.add( this.controller );
+        this.gestures = new ControllerGestures( this.renderer );
+        this.gestures.addEventListener( 'pan', (ev)=>{
+            //console.log( ev ); 
+            if (ev.initialise !== undefined){
+                self.startQuaternion = self.chair.object.quaternion.clone();
+            }else{
+                self.chair.object.quaternion.copy( self.startQuaternion );
+                self.chair.object.rotateY( ev.theta );
+            }
+        });
     }
 	
     resize(){
