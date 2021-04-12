@@ -75,7 +75,7 @@ class App{
             }
         }
 
-        
+        document.getElementById('place-button').addEventListener("click", onSelect);
 
         // Controller (gestures)
         // this.controller = this.renderer.xr.getController( 0 );
