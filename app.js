@@ -164,6 +164,8 @@ class App{
             self.renderer.xr.setSession( session );
        
             currentSession = session;
+
+            document.getElementById("place-button").style.display = "block";
             
         }
 
@@ -177,6 +179,8 @@ class App{
                 self.scene.remove( self.chair );
                 self.chair = null;
             }
+
+            document.getElementById("place-button").style.display = "none";
             
             self.renderer.setAnimationLoop( null );
 
