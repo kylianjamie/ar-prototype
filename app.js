@@ -2,7 +2,6 @@ import * as THREE from '/libs/three/three.module.js';
 import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
-import { OrbitControls } from '/libs/three/jsm/OrbitControls.js';
 
 class App{
 	constructor(){
@@ -29,14 +28,6 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
         this.setEnvironment();
-
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-		this.controls.addEventListener('change', this.render);
-		this.controls.minDistance = 2;
-		this.controls.maxDistance = 10;
-		this.controls.target.set(0, 0, -0.2);
-		this.controls.enableDamping = true;
-		this.controls.dampingFactor = 0.05;
         
         this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
