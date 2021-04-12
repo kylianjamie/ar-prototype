@@ -82,12 +82,11 @@ class App{
         
         this.scene.add( this.controller );
   
-        //pan event:
+        //pan event
         let touchDown, touchX, touchY, deltaX, deltaY;
         const hotspot = document.getElementById('pan-hotspot');
 
         hotspot.addEventListener('touchstart', function(e){
-            console.log('touch start');
             e.preventDefault();
             touchDown = true;
             touchX = e.touches[0].pageX;
@@ -95,7 +94,6 @@ class App{
         }, false);
 
         hotspot.addEventListener('touchend', function(e){
-            console.log('touchend');
             e.preventDefault();
             touchDown = false;
         }, false);
