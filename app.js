@@ -1,7 +1,7 @@
 import * as THREE from '/libs/three/three.module.js';
-import { GLTFLoader } from '/libs/three/GLTFLoader.js';
-import { RGBELoader } from '/libs/three/RGBELoader.js';
-import { LoadingBar } from '/libs/three/LoadingBar.js';
+import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
+import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
+import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
 
 class App{
 	constructor(){
