@@ -79,47 +79,47 @@ class App{
         // Controller (gestures)
         this.controller = this.renderer.xr.getController( 0 );
         // // this.controller.addEventListener( 'select', onSelect );
+        
+        this.scene.add( this.controller );
   
         //pan event:
-        let touchDown, touchX, touchY, deltaX, deltaY;
+        // let touchDown, touchX, touchY, deltaX, deltaY;
 
-        this.controller.addEventListener('touchstart', function(e){
-            console.log('touch start');
-            e.preventDefault();
-            touchDown = true;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
-        }, false);
+        // this.renderer.domElement.addEventListener('touchstart', function(e){
+        //     console.log('touch start');
+        //     e.preventDefault();
+        //     touchDown = true;
+        //     touchX = e.touches[0].pageX;
+        //     touchY = e.touches[0].pageY;
+        // }, false);
 
-        this.controller.addEventListener('touchend', function(e){
-            console.log('touchend');
-            e.preventDefault();
-            touchDown = false;
-        }, false);
+        // this.renderer.domElement.addEventListener('touchend', function(e){
+        //     console.log('touchend');
+        //     e.preventDefault();
+        //     touchDown = false;
+        // }, false);
 
-        this.controller.addEventListener('touchmove', function(e){
-            e.preventDefault();
+        // this.renderer.domElement.addEventListener('touchmove', function(e){
+        //     e.preventDefault();
             
-            if(!touchDown){
-                return;
-            }
+        //     if(!touchDown){
+        //         return;
+        //     }
 
-            deltaX = e.touches[0].pageX - touchX;
-            deltaY = e.touches[0].pageY - touchY;
-            touchX = e.touches[0].pageX;
-            touchY = e.touches[0].pageY;
+        //     deltaX = e.touches[0].pageX - touchX;
+        //     deltaY = e.touches[0].pageY - touchY;
+        //     touchX = e.touches[0].pageX;
+        //     touchY = e.touches[0].pageY;
 
-            rotateObject();
+        //     rotateObject();
 
-        }, false);
+        // }, false);
 
-        this.scene.add( this.controller );
-        
-        function rotateObject(){
-            if(self.chair){
-                self.chair.rotation.y += deltaX / 100;
-            }
-        }
+        // function rotateObject(){
+        //     if(self.chair){
+        //         self.chair.rotation.y += deltaX / 100;
+        //     }
+        // }
     }
 	
     resize(){
