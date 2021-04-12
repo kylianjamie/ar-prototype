@@ -77,14 +77,13 @@ class App{
         document.getElementById('place-button').addEventListener("click", onSelect);
 
         // Controller (gestures)
-        // this.controller = this.renderer.xr.getController( 0 );
+        this.controller = this.renderer.xr.getController( 0 );
         // // this.controller.addEventListener( 'select', onSelect );
-        
-        // this.scene.add( this.controller );
   
+        //pan event:
         let touchDown, touchX, touchY, deltaX, deltaY;
 
-        renderer.domElement.addEventListener('touchstart', function(e){
+        this.controller.addEventListener('touchstart', function(e){
             console.log('touch start');
             e.preventDefault();
             touchDown = true;
@@ -92,13 +91,13 @@ class App{
             touchY = e.touches[0].pageY;
         }, false);
 
-        renderer.domElement.addEventListener('touchend', function(e){
+        this.controller.addEventListener('touchend', function(e){
             console.log('touchend');
             e.preventDefault();
             touchDown = false;
         }, false);
 
-        renderer.domElement.addEventListener('touchmove', function(e){
+        this.controller.addEventListener('touchmove', function(e){
             e.preventDefault();
             
             if(!touchDown){
@@ -114,6 +113,8 @@ class App{
 
         }, false);
 
+        this.scene.add( this.controller );
+        
         function rotateObject(){
             if(self.chair){
                 self.chair.rotation.y += deltaX / 100;
