@@ -8,3 +8,7 @@ hammerInfo.on('pandown', function() {
 hammerInfo.on('tap', function() {
 	console.log('tap');
 });
+
+hammerInfo.on('swipe', function() {
+	console.log('swipe');
+});
