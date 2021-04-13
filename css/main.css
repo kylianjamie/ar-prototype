@@ -5,3 +5,8 @@
 .active-border:active{
     border-color: rgba(209, 213, 219, 1);
 }
+
+.rounded-huge{
+    border-top-left-radius: 2.25rem;
+    border-top-right-radius: 2.25rem;
+}
