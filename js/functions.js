@@ -10,6 +10,7 @@ hammerInfo.on('swipedown', closeInfoOverlay);
 document.getElementById('info-overlay-block').addEventListener("click", closeInfoOverlay);
 
 function closeInfoOverlay() {
+    infoContainer.classList.add("animate__fast");
     infoContainer.classList.add("animate__slideOutDown");
     infoOverlayStatus = 'hidden';
 }
@@ -27,6 +28,7 @@ infoContainer.addEventListener('animationend', () => {
 
     if (infoOverlayStatus === 'hidden'){
         infoOverlay.classList.add("hidden");
-        infoContainer.classList.remove("animate__slideOutDown");  
+        infoContainer.classList.remove("animate__slideOutDown");
+        infoContainer.classList.remove("animate__fast");  
     }
   });
