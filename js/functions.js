@@ -10,11 +10,12 @@ hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 document.getElementById('info-button').addEventListener("click", openOverlay(infoContainer));
 
 function openOverlay(el) {
+    console.log('overlay open huts');
     el.classList.add("animate__slideInUp");
     popupOverlay.classList.remove("hidden");
     overlayStatus = 'visible';
 
-    callback(el);
+    // callback(el);
 }
 
 hammerInfo.on('swipedown', closeOverlay(infoContainer));
