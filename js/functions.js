@@ -1,47 +1,42 @@
 // info overlay show and hide functions
 const popupOverlay = document.getElementById('popup-overlay');
-const infoContainer = document.getElementById('info-container');
+const popupContainer = document.getElementById('popup-container');
 const hammerInfo = new Hammer(popupOverlay);
 
 let overlayStatus = 'hidden';
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
-document.getElementById('info-button').addEventListener("click", function() {openOverlay(infoContainer);});
+document.getElementById('info-button').addEventListener("click", openOverlay);
 
-function openOverlay(el) {
-    el.classList.add("animate__slideInUp");
+function openOverlay() {
+    popupContainer.classList.add("animate__slideInUp");
     popupOverlay.classList.remove("hidden");
     overlayStatus = 'visible';
-
-    callback(el);
 }
 
-hammerInfo.on('swipedown', function() {closeOverlay(infoContainer)});
-document.getElementById('popup-overlay-block').addEventListener("click", function() {closeOverlay(infoContainer)});
-document.getElementById('container-bar').addEventListener("click", function() {closeOverlay(infoContainer)});
+hammerInfo.on('swipedown', closeOverlay);
+document.getElementById('popup-overlay-block').addEventListener("click", closeOverlay);
+document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
-function closeOverlay(el) {
-    el.classList.add("animate__faster");
-    el.classList.add("animate__slideOutDown");
+function closeOverlay() {
+    popupContainer.classList.add("animate__faster");
+    popupContainer.classList.add("animate__slideOutDown");
     overlayStatus = 'hidden';
-
-    callback(el);
 }
 
-function callback (el) {
-el.addEventListener('animationend', () => {
+popupContainer.addEventListener('animationend', () => {
     if (overlayStatus === 'visible'){
-        el.classList.remove("animate__slideInUp");
+        popupContainer.classList.remove("animate__slideInUp");
     }
 
     if (overlayStatus === 'hidden'){
         popupOverlay.classList.add("hidden");
-        el.classList.remove("animate__slideOutDown");
-        el.classList.remove("animate__faster");  
+        popupContainer.classList.remove("animate__slideOutDown");
+        popupContainer.classList.remove("animate__faster");  
     }
   });
-}
+
 
 
   // whoop
