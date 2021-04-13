@@ -7,7 +7,9 @@ let overlayStatus = 'hidden';
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
-document.getElementById('info-button').addEventListener("click", openOverlay(infoContainer));
+document.getElementById('info-button').addEventListener("click", function() {
+    openOverlay(infoContainer);
+});
 
 function openOverlay(el) {
     console.log('overlay open huts');
