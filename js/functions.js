@@ -6,11 +6,13 @@ const hammerInfo = new Hammer(infoOverlay);
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
-hammerInfo.on('swipedown', function() {
-	console.log('swipe down');
+hammerInfo.on('swipedown', closeInfoOverlay);
+document.getElementById('info-overlay-block').addEventListener("click", closeInfoOverlay);
+
+function closeInfoOverlay() {
     infoContainer.classList.add("animate__slideOutDown");
     infoOverlayStatus = 'hidden';
-});
+}
 
 document.getElementById('info-button').addEventListener("click", function() {
     infoContainer.classList.add("animate__slideInUp");
