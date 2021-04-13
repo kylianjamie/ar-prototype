@@ -7,22 +7,19 @@ let overlayStatus = 'hidden';
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
-document.getElementById('info-button').addEventListener("click", function() {
-    openOverlay(infoContainer);
-});
+document.getElementById('info-button').addEventListener("click", function() {openOverlay(infoContainer);});
 
 function openOverlay(el) {
-    console.log('overlay open huts');
     el.classList.add("animate__slideInUp");
     popupOverlay.classList.remove("hidden");
     overlayStatus = 'visible';
 
-    // callback(el);
+    callback(el);
 }
 
-hammerInfo.on('swipedown', closeOverlay(infoContainer));
-document.getElementById('popup-overlay-block').addEventListener("click", closeOverlay(infoContainer));
-document.getElementById('container-bar').addEventListener("click", closeOverlay(infoContainer));
+hammerInfo.on('swipedown', function() {closeOverlay(infoContainer)});
+document.getElementById('popup-overlay-block').addEventListener("click", function() {closeOverlay(infoContainer)});
+document.getElementById('container-bar').addEventListener("click", function() {closeOverlay(infoContainer)});
 
 function closeOverlay(el) {
     el.classList.add("animate__faster");
