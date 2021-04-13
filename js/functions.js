@@ -1,13 +1,23 @@
 // info overlay show and hide functions
 const popupOverlay = document.getElementById('popup-overlay');
 const popupContainer = document.getElementById('popup-container');
+const infoContainer = document.getElementById('info-container');
+const cartContainer = document.getElementById('cart-container');
 const hammerInfo = new Hammer(popupOverlay);
 
 let overlayStatus = 'hidden';
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
-document.getElementById('info-button').addEventListener("click", openOverlay);
+document.getElementById('info-button').addEventListener("click", function() {
+    infoContainer.classList.remove('hidden');
+    openOverlay();
+});
+
+document.getElementById('cart-button').addEventListener("click", function() {
+    cartContainer.classList.remove('hidden');
+    openOverlay();
+});
 
 function openOverlay() {
     popupContainer.classList.add("animate__slideInUp");
@@ -34,6 +44,12 @@ popupContainer.addEventListener('animationend', () => {
         popupOverlay.classList.add("hidden");
         popupContainer.classList.remove("animate__slideOutDown");
         popupContainer.classList.remove("animate__faster");  
+
+        if(!infoContainer.classList.contains('hidden')){
+            infoContainer.classList.add('hidden');
+        } else if (!cartContainer.classList.contains('hidden')){
+            cartContainer.classList.add('hidden');
+        }
     }
   });
 
