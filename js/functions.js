@@ -1,11 +1,21 @@
 // info overlay show and hide functions
 const popupOverlay = document.getElementById('popup-overlay');
 const infoContainer = document.getElementById('info-container');
-let overlayStatus = 'hidden';
 const hammerInfo = new Hammer(popupOverlay);
+
+let overlayStatus = 'hidden';
 
 hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
 
+document.getElementById('info-button').addEventListener("click", openOverlay(infoContainer));
+
+function openOverlay(el) {
+    el.classList.add("animate__slideInUp");
+    popupOverlay.classList.remove("hidden");
+    overlayStatus = 'visible';
+
+    callback(el);
+}
 
 hammerInfo.on('swipedown', closeOverlay(infoContainer));
 document.getElementById('popup-overlay-block').addEventListener("click", closeOverlay(infoContainer));
@@ -15,16 +25,6 @@ function closeOverlay(el) {
     el.classList.add("animate__faster");
     el.classList.add("animate__slideOutDown");
     overlayStatus = 'hidden';
-
-    callback(el);
-}
-
-document.getElementById('info-button').addEventListener("click", openOverlay(infoContainer));
-
-function openOverlay(el) {
-    el.classList.add("animate__slideInUp");
-    popupOverlay.classList.remove("hidden");
-    overlayStatus = 'visible';
 
     callback(el);
 }
