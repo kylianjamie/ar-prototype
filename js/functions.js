@@ -19,7 +19,7 @@ function closeOverlay(el) {
     callback(el);
 }
 
-document.getElementById('info-button').addEventListener("click", openOverlay);
+document.getElementById('info-button').addEventListener("click", openOverlay(infoContainer));
 
 function openOverlay(el) {
     el.classList.add("animate__slideInUp");
