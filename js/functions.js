@@ -29,7 +29,7 @@ function openOverlay() {
     overlayStatus = 'visible';
 }
 
-hammerOverlay.on('panstart', closeOverlay);
+// hammerOverlay.on('panstart', closeOverlay);
 hammerBlock.on('panstart tap', closeOverlay);
 hammerBlock.on('panstart', console.log('pan'));
 hammerBlock.on('tap', console.log('tap'));
