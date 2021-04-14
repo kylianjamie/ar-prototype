@@ -34,8 +34,6 @@ document.getElementById('container-bar').addEventListener("click", closeOverlay)
 
 function closeOverlay() {
     console.log('close overlay');
-    console.log(hammerBlock.get('swipe'));
-    console.log(hammerOverlay.get('swipe'));
     hammerOverlay.get('swipe').set({ enable: false });
     hammerBlock.get('swipe').set({ enable: false });
     hammerBlock.get('tap').set({ enable: false });
@@ -53,14 +51,16 @@ popupContainer.addEventListener('animationend', () => {
         popupOverlay.classList.add("hidden");
         popupContainer.classList.remove("animate__slideOutDown");
         popupContainer.classList.remove("animate__faster");  
-        hammerOverlay.get('swipe').set({ enable: true });
-        hammerBlock.get('swipe').set({ enable: true });
-        hammerBlock.get('tap').set({ enable: true });
-
         if(!infoContainer.classList.contains('hidden')){
             infoContainer.classList.add('hidden');
         } else if (!cartContainer.classList.contains('hidden')){
             cartContainer.classList.add('hidden');
         }
     }
+
+    setTimeout(function() {
+        hammerOverlay.get('swipe').set({ enable: true });
+        hammerBlock.get('swipe').set({ enable: true });
+        hammerBlock.get('tap').set({ enable: true });
+      }, 100);
   });
