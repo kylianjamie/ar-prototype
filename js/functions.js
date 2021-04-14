@@ -1,13 +1,16 @@
 // info overlay show and hide functions
 const popupOverlay = document.getElementById('popup-overlay');
 const popupContainer = document.getElementById('popup-container');
+const popupBlock = document.getElementById('popup-overlay-block');
 const infoContainer = document.getElementById('info-container');
 const cartContainer = document.getElementById('cart-container');
-const hammerInfo = new Hammer(popupOverlay);
+const hammerOverlay = new Hammer(popupOverlay);
+const hammerBlock = new Hammer(popupBlock);
 
 let overlayStatus = 'hidden';
 
-hammerInfo.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
+hammerOverlay.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
+hammerBlock.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
 
 document.getElementById('info-button').addEventListener("click", function() {
     infoContainer.classList.remove('hidden');
@@ -25,8 +28,9 @@ function openOverlay() {
     overlayStatus = 'visible';
 }
 
-hammerInfo.on('swipedown', closeOverlay);
-document.getElementById('popup-overlay-block').addEventListener("click", closeOverlay);
+hammerOverlay.on('swipedown', closeOverlay);
+hammerBlock.on('pan', closeOverlay);
+popupBlock.addEventListener("click", closeOverlay);
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
 function closeOverlay() {
