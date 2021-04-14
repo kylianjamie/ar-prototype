@@ -31,8 +31,8 @@ function openOverlay() {
 
 hammerOverlay.on('panstart', closeOverlay);
 hammerBlock.on('panstart tap', closeOverlay);
-hammerBlock.on('panstart', function(){ console.log('pan') });
-hammerBlock.on('tap', function(){ console.log('tap') });
+hammerBlock.on('panstart', console.log('pan'));
+hammerBlock.on('tap', console.log('tap'));
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
 function closeOverlay() {
