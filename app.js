@@ -35,8 +35,8 @@ class App{
         // );
 
         this.reticle = new THREE.Mesh(
-            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/texture.png') })
+            new THREE.PlaneBufferGeometry( 0.5, 0.5, 32 ).rotateX( - Math.PI / 2 ),
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/texture2.png') })
         );
         
         this.reticle.matrixAutoUpdate = false;
