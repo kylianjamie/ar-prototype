@@ -33,7 +33,7 @@ hammerBlock.on('panstart tap', closeOverlay);
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
 function closeOverlay() {
-    if (!overlayStatus === 'hidden'){
+    if (overlayStatus != 'hidden'){
         console.log('close overlay');
         overlayStatus = 'hidden';
         hammerOverlay.get('pan').set({ enable: false });
