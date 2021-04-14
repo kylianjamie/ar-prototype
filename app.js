@@ -31,7 +31,7 @@ class App{
         
         this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial({ opacity: 0.5 })
+            new THREE.MeshBasicMaterial({ opacity: 0.5, transparent: true })
         );
         
         this.reticle.matrixAutoUpdate = false;

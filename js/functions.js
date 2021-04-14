@@ -11,7 +11,7 @@ let overlayStatus = 'hidden';
 
 hammerOverlay.get('pan').set({ direction: Hammer.DIRECTION_DOWN });
 hammerBlock.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-hammerBlock.get('pan').set({ threshold: 500 });
+hammerBlock.get('pan').set({ threshold: 100 });
 
 document.getElementById('info-button').addEventListener("click", function() {
     infoContainer.classList.remove('hidden');
