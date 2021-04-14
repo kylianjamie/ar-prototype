@@ -34,7 +34,6 @@ document.getElementById('container-bar').addEventListener("click", closeOverlay)
 
 function closeOverlay() {
     if (overlayStatus != 'hidden'){
-        console.log('close overlay');
         overlayStatus = 'hidden';
         hammerOverlay.get('pan').set({ enable: false });
         hammerBlock.get('pan').set({ enable: false });
@@ -58,11 +57,10 @@ popupContainer.addEventListener('animationend', () => {
         } else if (!cartContainer.classList.contains('hidden')){
             cartContainer.classList.add('hidden');
         }
-    }
 
-    setTimeout(function() {
         hammerOverlay.get('pan').set({ enable: true });
         hammerBlock.get('pan').set({ enable: true });
         hammerBlock.get('tap').set({ enable: true });
-      }, 100);
+        
+    }  
   });
