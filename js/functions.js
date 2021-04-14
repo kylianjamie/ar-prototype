@@ -65,3 +65,16 @@ popupContainer.addEventListener('animationend', () => {
 
     }  
   });
+
+const addCart = document.getElementById('add-card-btn') 
+let cartBtnClicked = false;
+
+function addToCart() {
+    if (!cartBtnClicked){
+        cartBtnClicked = true;
+        addCart.classList.remove('text-white', 'bg-gray-600');
+        addCart.classList.add('text-gray-700', 'border', 'border-gray-600');
+    }
+}
+
+addCart.addEventListener('click', addToCart);
