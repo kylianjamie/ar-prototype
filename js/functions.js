@@ -35,6 +35,7 @@ document.getElementById('container-bar').addEventListener("click", closeOverlay)
 function closeOverlay() {
     console.log('close overlay');
     console.log(hammerBlock.get('swipe'));
+    console.log(hammerOverlay.get('swipe'));
     hammerOverlay.get('swipe').set({ enable: false });
     hammerBlock.get('swipe').set({ enable: false });
     hammerBlock.get('tap').set({ enable: false });
