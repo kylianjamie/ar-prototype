@@ -34,6 +34,7 @@ document.getElementById('container-bar').addEventListener("click", closeOverlay)
 
 function closeOverlay() {
     console.log('close overlay');
+    console.log(hammerBlock.get('swipe'));
     hammerOverlay.get('swipe').set({ enable: false });
     hammerBlock.get('swipe').set({ enable: false });
     hammerBlock.get('tap').set({ enable: false });
@@ -62,35 +63,3 @@ popupContainer.addEventListener('animationend', () => {
         }
     }
   });
-
-
-
-  // whoop
-
-// hammerInfo.on('swipedown', closeInfoOverlay);
-// document.getElementById('info-overlay-block').addEventListener("click", closeInfoOverlay);
-// document.getElementById('container-bar').addEventListener("click", closeInfoOverlay);
-
-// function closeInfoOverlay() {
-//     infoContainer.classList.add("animate__faster");
-//     infoContainer.classList.add("animate__slideOutDown");
-//     infoOverlayStatus = 'hidden';
-// }
-
-// document.getElementById('info-button').addEventListener("click", function() {
-//     infoContainer.classList.add("animate__slideInUp");
-//     infoOverlay.classList.remove("hidden");
-//     infoOverlayStatus = 'visible';
-// });
-
-// infoContainer.addEventListener('animationend', () => {
-//     if (infoOverlayStatus === 'visible'){
-//         infoContainer.classList.remove("animate__slideInUp");
-//     }
-
-//     if (infoOverlayStatus === 'hidden'){
-//         infoOverlay.classList.add("hidden");
-//         infoContainer.classList.remove("animate__slideOutDown");
-//         infoContainer.classList.remove("animate__faster");  
-//     }
-//   });
