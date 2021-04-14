@@ -29,9 +29,14 @@ class App{
 		container.appendChild( this.renderer.domElement );
         this.setEnvironment();
         
+        // this.reticle = new THREE.Mesh(
+        //     new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
+        //     new THREE.MeshBasicMaterial({ opacity: 0.5, transparent: true })
+        // );
+
         this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial({ opacity: 0.5, transparent: true })
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/texture.png') })
         );
         
         this.reticle.matrixAutoUpdate = false;
