@@ -9,7 +9,7 @@ const hammerBlock = new Hammer(popupBlock);
 
 let overlayStatus = 'hidden';
 
-hammerOverlay.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
+hammerOverlay.get('pan').set({ direction: Hammer.DIRECTION_DOWN });
 hammerBlock.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
 
 document.getElementById('info-button').addEventListener("click", function() {
@@ -28,9 +28,8 @@ function openOverlay() {
     overlayStatus = 'visible';
 }
 
-hammerOverlay.on('swipedown', closeOverlay);
-hammerBlock.on('panstart', closeOverlay);
-popupBlock.addEventListener("click", closeOverlay);
+hammerOverlay.on('panstart', closeOverlay);
+hammerBlock.on('panstart tap', closeOverlay);
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
 function closeOverlay() {
