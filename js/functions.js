@@ -30,18 +30,8 @@ function openOverlay() {
 }
 
 hammerOverlay.on('panstart', closeOverlay);
-// hammerBlock.on('panstart tap', closeOverlay);
-hammerBlock.on('panstart', logPan);
-hammerBlock.on('tap', logTap);
+hammerBlock.on('panstart tap', closeOverlay);
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
-
-function logPan() {
-    console.log('pan');
-}
-
-function logTap() {
-    console.log('tap');
-}
 
 function closeOverlay() {
     if (overlayStatus != 'hidden'){
