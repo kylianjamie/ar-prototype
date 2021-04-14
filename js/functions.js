@@ -66,15 +66,17 @@ popupContainer.addEventListener('animationend', () => {
     }  
   });
 
-const addCart = document.getElementById('add-card-btn') 
+const addCartBtn = document.getElementById('add-card-btn') 
 let cartBtnClicked = false;
+const checkSVG = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>'
 
 function addToCart() {
     if (!cartBtnClicked){
         cartBtnClicked = true;
-        addCart.classList.remove('text-white', 'bg-gray-600');
-        addCart.classList.add('text-gray-700', 'border', 'border-gray-600');
+        addCartBtn.classList.remove('text-white', 'bg-gray-600');
+        addCartBtn.classList.add('text-gray-700', 'border', 'border-gray-600');
+        addCartBtn.innerHTML = 'Toegevoegd ' + checkSVG;
     }
 }
 
-addCart.addEventListener('click', addToCart);
+addCartBtn.addEventListener('click', addToCart);
