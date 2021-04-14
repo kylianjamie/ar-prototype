@@ -10,3 +10,7 @@
     border-top-left-radius: 2.25rem;
     border-top-right-radius: 2.25rem;
 }
+
+#qty-input{
+    max-width: 2.25rem;
+}
