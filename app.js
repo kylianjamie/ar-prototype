@@ -36,7 +36,7 @@ class App{
 
         this.reticle = new THREE.Mesh(
             new THREE.PlaneBufferGeometry( 1, 1 ).rotateX( - Math.PI / 2 ),
-            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/reticle-texture.png'), transparent: true, opacity: 0.75 })
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/reticle-texture.png'), transparent: true, opacity: 0.6 })
         );
         
         this.reticle.matrixAutoUpdate = false;
