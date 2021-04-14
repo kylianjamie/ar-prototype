@@ -34,6 +34,7 @@ popupBlock.addEventListener("click", closeOverlay);
 document.getElementById('container-bar').addEventListener("click", closeOverlay);
 
 function closeOverlay() {
+    console.log('close overlay');
     popupContainer.classList.add("animate__faster");
     popupContainer.classList.add("animate__slideOutDown");
     overlayStatus = 'hidden';
