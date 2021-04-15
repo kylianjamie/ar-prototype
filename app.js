@@ -303,15 +303,15 @@ class App{
             this.reticle.visible = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
 
-            textGeometry.visible = true;
-            textGeometry.matrix.fromArray( pose.transform.matrix );
+            this.textGeometry.visible = true;
+            this.textGeometry.matrix.fromArray( pose.transform.matrix );
 
 
         } else {
 
             this.reticle.visible = false;
 
-            textGeometry.visible = false;
+            this.textGeometry.visible = false;
 
         }
 
