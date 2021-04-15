@@ -79,6 +79,7 @@ function addToCart() {
 
         setTimeout(function(){
             addCartBtn.innerHTML = 'Toegevoegd ' + checkSVG;
+            addCartBtn.classList.remove('non-clicked-add-btn');
         }, 50);
 
         if (goToCart.classList.contains('hidden')){
@@ -91,6 +92,7 @@ function addToCart() {
 
             setTimeout(function(){
                 addCartBtn.innerHTML = 'In winkelwagen';
+                addCartBtn.classList.add('non-clicked-add-btn');
             }, 50);
             
             cartBtnClicked = false;
