@@ -76,16 +76,23 @@ function addToCart() {
         cartBtnClicked = true;
         addCartBtn.classList.remove('text-white', 'bg-gray-600');
         addCartBtn.classList.add('text-gray-700', 'border', 'border-gray-600');
-        addCartBtn.innerHTML = 'Toegevoegd ' + checkSVG;
+
+        setTimeout(function(){
+            addCartBtn.innerHTML = 'Toegevoegd ' + checkSVG;
+        }, 50);
 
         if (goToCart.classList.contains('hidden')){
             goToCart.classList.remove('hidden');
         }
         
         setTimeout(function(){
-            addCartBtn.innerHTML = 'In winkelwagen';
             addCartBtn.classList.remove('text-gray-700', 'border', 'border-gray-600');
             addCartBtn.classList.add('text-white', 'bg-gray-600');
+
+            setTimeout(function(){
+                addCartBtn.innerHTML = 'In winkelwagen';
+            }, 50);
+            
             cartBtnClicked = false;
         }, 3000);
 
