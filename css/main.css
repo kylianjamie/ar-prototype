@@ -14,3 +14,7 @@
 #qty-input{
     max-width: 2.25rem;
 }
+
+#check-svg{
+    transform: translateY(2px);
+}
