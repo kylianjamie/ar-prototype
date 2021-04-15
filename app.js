@@ -42,7 +42,7 @@ class App{
         const fontLoader = new THREE.FontLoader();
         const textGeometry;
 
-        fontLoader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+        fontLoader.load( '/fonts/Roboto_Bold.json', function ( font ) {
 
             textGeometry = new THREE.TextGeometry( 'Huts!', {
                 font: font,
