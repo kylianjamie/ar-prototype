@@ -40,11 +40,10 @@ class App{
         );
 
         const fontLoader = new THREE.FontLoader();
-        const textGeometry;
 
         fontLoader.load( '/fonts/Roboto_Bold.json', function ( font ) {
 
-            textGeometry = new THREE.TextGeometry( 'Huts!', {
+            this.textGeometry = new THREE.TextGeometry( 'Huts!', {
                 font: font,
                 size: 80,
                 height: 5,
@@ -62,8 +61,8 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
 
-        textGeometry.matrixAutoUpdate = false;
-        textGeometry.visible = false;
+        this.textGeometry.matrixAutoUpdate = false;
+        this.textGeometry.visible = false;
         this.scene.add( textGeometry );
         
         this.setupXR();
