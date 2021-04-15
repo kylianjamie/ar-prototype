@@ -38,10 +38,33 @@ class App{
             new THREE.PlaneBufferGeometry( 1, 1 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/img/reticle-texture.png'), transparent: true, opacity: 0.6 })
         );
+
+        const fontLoader = new THREE.FontLoader();
+        const textGeometry;
+
+        fontLoader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+            textGeometry = new THREE.TextGeometry( 'Huts!', {
+                font: font,
+                size: 80,
+                height: 5,
+                curveSegments: 12,
+                bevelEnabled: true,
+                bevelThickness: 10,
+                bevelSize: 8,
+                bevelOffset: 0,
+                bevelSegments: 5
+            } );
+        } );
+
         
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
         this.scene.add( this.reticle );
+
+        textGeometry.matrixAutoUpdate = false;
+        textGeometry.visible = false;
+        this.scene.add( textGeometry );
         
         this.setupXR();
 		
@@ -280,9 +303,15 @@ class App{
             this.reticle.visible = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
 
+            textGeometry.visible = true;
+            textGeometry.matrix.fromArray( pose.transform.matrix );
+
+
         } else {
 
             this.reticle.visible = false;
+
+            textGeometry.visible = false;
 
         }
 
