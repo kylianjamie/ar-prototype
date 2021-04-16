@@ -125,34 +125,6 @@ class App{
             }
         }
 
-        // const introTxt = document.getElementById('intro-txt');
-
-        // function startPulse() {
-        //     introTxt.style.opacity = 0;
-                
-        //         window.waitingForPlacement = true;
-
-        //         function placeButtonPulse() {
-        //             const placeBtn = document.getElementById('place-button');
-        //             placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
-
-        //             setTimeout(function() {
-        //                 placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-        //             }, 600);
-
-        //             if(window.waitingForPlacement = true){
-        //                 setTimeout(placeButtonPulse, 1200); 
-        //             }
-        //         }
-            
-        //     placeButtonPulse();
-
-        //     setTimeout(function(){
-        //         introTxt.innerHTML = "Plaats het product";
-        //         introTxt.style.opacity = 1;
-        //     }, 300);
-        // }
-
     }
 	
     resize(){
@@ -302,10 +274,9 @@ class App{
 
         if ( hitTestResults.length ) {
             
-            if (count == 0){
-                console.log(count);
-                count = 1;
-                lekkerPik();
+            if (introStatus == 0){
+                introStatus = 1;
+                toSecondIntro();
             }
 
             const referenceSpace = this.renderer.xr.getReferenceSpace();

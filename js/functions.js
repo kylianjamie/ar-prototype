@@ -103,8 +103,33 @@ function addToCart() {
 
 addCartBtn.addEventListener('click', addToCart);
 
-let count = 0;
+const placeBtn = document.getElementById('place-button');
+const introTxt = document.getElementById('intro-txt');
+let introStatus = 0;
 
-function lekkerPik() {
-    console.log('Lekker pik');
+function toSecondIntro(){
+    if (introStatus == 1){
+        triggerPulse();
+    
+        introTxt.style.opacity = 0;
+    
+        setTimeout(function(){
+            introTxt.innerHTML = "Plaats het product";
+            introTxt.style.opacity = 1;
+        }, 600);
+    }
+}
+
+function triggerPulse() {
+    placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
+
+    setTimeout(function() {
+        placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
+    }, 600);
+
+    setTimeout(function() {
+        if (introStatus == 1){
+            triggerPulse();
+        }
+    }, 1000)
 }
