@@ -125,31 +125,32 @@ class App{
             }
         }
 
-        if (window.reticleInit = true){
-            introTxt.style.opacity = 0;
+        // const introTxt = document.getElementById('intro-txt');
+        // if (window.reticleInit = true){
+        //     introTxt.style.opacity = 0;
                 
-                window.waitingForPlacement = true;
+        //         window.waitingForPlacement = true;
 
-                function placeButtonPulse() {
-                    const placeBtn = document.getElementById('place-button');
-                    placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
+        //         function placeButtonPulse() {
+        //             const placeBtn = document.getElementById('place-button');
+        //             placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
 
-                    setTimeout(function() {
-                        placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-                    }, 600);
+        //             setTimeout(function() {
+        //                 placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
+        //             }, 600);
 
-                    if(window.waitingForPlacement = true){
-                        setTimeout(placeButtonPulse, 1200); 
-                    }
-                }
+        //             if(window.waitingForPlacement = true){
+        //                 setTimeout(placeButtonPulse, 1200); 
+        //             }
+        //         }
             
-            placeButtonPulse();
+        //     placeButtonPulse();
 
-            setTimeout(function(){
-                introTxt.innerHTML = "Plaats het product";
-                introTxt.style.opacity = 1;
-            }, 300);
-        }
+        //     setTimeout(function(){
+        //         introTxt.innerHTML = "Plaats het product";
+        //         introTxt.style.opacity = 1;
+        //     }, 300);
+        // }
 
     }
 	
@@ -303,11 +304,11 @@ class App{
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
             const pose = hit.getPose( referenceSpace );
-            const introTxt = document.getElementById('intro-txt');
 
             this.reticle.visible = true;
-            window.reticleInit = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
+
+            // window.reticleInit = true;
 
         } else {
 
