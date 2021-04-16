@@ -302,7 +302,8 @@ class App{
         let count = 0;
 
         if ( hitTestResults.length ) {
-            if (count = 0){
+            
+            if (count == 0){
                 count++;
                 lekkerPik();
             }
