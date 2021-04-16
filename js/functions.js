@@ -108,18 +108,39 @@ const introTxt = document.getElementById('intro-txt');
 let introStatus = 0;
 
 function toSecondIntro(){
-    if (introStatus == 1){
-        triggerPulse();
-    
-        introTxt.style.opacity = 0;
-    
-        setTimeout(function(){
-            introTxt.innerHTML = "Plaats het product";
-            introTxt.style.opacity = 1;
-        }, 600);
-    }
+    introStatus = 1;
+    placeBtn.classList.add('pulse-shadow');
+
+    introTxt.style.opacity = 0;
+
+    setTimeout(function(){
+        introTxt.innerHTML = "Plaats het product";
+        introTxt.style.opacity = 1;
+    }, 600);
 }
 
-function triggerPulse() {
-    placeBtn.classList.add('pulse-shadow');
+function toThirdIntro(){
+    introStatus = 2;
+    placeBtn.classList.remove('pulse-shadow');
+    introTxt.style.opacity = 0;
+    setTimeout(function(){
+        introTxt.innerHTML = "Swipe links of rechts om het product te draaien";
+        introTxt.style.opacity = 1;
+    }, 600);
+
+    setTimeout(function() {
+        removeIntro();
+    }, 5000)
+}
+
+let isTouched = false;
+function removeIntro() {
+    if (isTouched == false){
+        introStatus = 3;
+        isTouched = true;
+        introTxt.style.opacity = 0;
+        setTimeout(function(){
+            introTxt.innerHTML = "Beweeg de camera langzaam heen en weer";
+        }, 300);
+    }
 }

@@ -76,6 +76,8 @@ class App{
             if (self.reticle.visible){
                 self.chair.position.setFromMatrixPosition( self.reticle.matrix );
                 self.chair.visible = true;
+
+                toThirdIntro();
             }
         }
 
@@ -120,6 +122,7 @@ class App{
         }, false);
 
         function rotateObject(){
+            removeIntro();
             if(self.chair){
                 self.chair.rotation.y += deltaX / 100;
             }
@@ -211,6 +214,7 @@ class App{
             currentSession = session;
 
             document.getElementById("ui").style.display = "flex";
+            document.getElementById("intro-text").style.opacity = 1;
             
         }
 
@@ -226,6 +230,7 @@ class App{
             }
 
             document.getElementById("ui").style.display = "none";
+            introStatus = 0;
             
             self.renderer.setAnimationLoop( null );
 
@@ -275,7 +280,6 @@ class App{
         if ( hitTestResults.length ) {
             
             if (introStatus == 0){
-                introStatus = 1;
                 toSecondIntro();
             }
 
