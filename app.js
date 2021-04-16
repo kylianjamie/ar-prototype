@@ -299,10 +299,14 @@ class App{
     
     getHitTestResults( frame ){
         const hitTestResults = frame.getHitTestResults( this.hitTestSource );
-
-        lekkerPik();
+        let count = 0;
 
         if ( hitTestResults.length ) {
+            if (count = 0){
+                count++;
+                lekkerPik();
+            }
+
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
             const pose = hit.getPose( referenceSpace );
