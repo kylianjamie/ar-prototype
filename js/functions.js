@@ -125,11 +125,11 @@ function triggerPulse() {
 
     setTimeout(function() {
         placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-    }, 600);
+    }, 900);
 
     setTimeout(function() {
         if (introStatus == 1){
             triggerPulse();
         }
-    }, 1000)
+    }, 1800)
 }
