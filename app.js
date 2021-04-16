@@ -77,7 +77,7 @@ class App{
                 self.chair.position.setFromMatrixPosition( self.reticle.matrix );
                 self.chair.visible = true;
 
-                toThirdIntro();
+                placeClick();
             }
         }
 

@@ -105,11 +105,13 @@ addCartBtn.addEventListener('click', addToCart);
 
 const placeBtn = document.getElementById('place-button');
 const introTxt = document.getElementById('intro-txt');
+var initSound  = new Audio('/assets/audio/init.mp3');
 let introStatus = 0;
 
 function toSecondIntro(){
     introStatus = 1;
     placeBtn.classList.add('pulse-shadow');
+    initSound.play();
 
     introTxt.style.opacity = 0;
 
@@ -117,6 +119,13 @@ function toSecondIntro(){
         introTxt.innerHTML = "Plaats het product";
         introTxt.style.opacity = 1;
     }, 600);
+}
+
+var placeSound  = new Audio('/assets/audio/place.mp3');
+
+function placeClick(){
+    placeSound.play();
+    toThirdIntro();
 }
 
 let firstTime = true;
