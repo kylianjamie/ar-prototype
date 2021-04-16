@@ -300,9 +300,9 @@ class App{
     getHitTestResults( frame ){
         const hitTestResults = frame.getHitTestResults( this.hitTestSource );
 
-        if ( hitTestResults.length ) {
-            window.testSomething();
+        lekkerPik();
 
+        if ( hitTestResults.length ) {
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
             const pose = hit.getPose( referenceSpace );
@@ -314,12 +314,6 @@ class App{
             this.reticle.visible = false;
         }
 
-    }
-    
-    methods(){
-        function testSomething() {
-            console.log('Test function triggered');
-        }
     }
 
 	render( timestamp, frame ) {

@@ -102,3 +102,7 @@ function addToCart() {
 }
 
 addCartBtn.addEventListener('click', addToCart);
+
+function lekkerPik() {
+    console.log('Lekker pik');
+}
