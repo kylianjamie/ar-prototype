@@ -36,3 +36,7 @@
 #place-button{
     border-color: rgba(249, 250, 251, 1);
 }
+
+.pulse-shadow{
+    box-shadow: 0 4px 6px -1px rgba(174, 228, 237, 1), 0 2px 4px -1px rgba(174, 228, 237, 1)
+}
