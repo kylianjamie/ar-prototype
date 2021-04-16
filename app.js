@@ -282,6 +282,28 @@ class App{
             this.reticle.matrix.fromArray( pose.transform.matrix );
 
             introTxt.style.opacity = 0;
+            
+            this.waitingForPlacement = true;
+
+            function placeButtonPulse() {
+                const placeBtn = document.getElementById('place-button');
+                placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
+
+                setTimeout(function() {
+                    placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
+                }, 600);
+
+                if(this.waitingForPlacement == true){
+                     setTimeout(placeButtonPulse, 1200); 
+                }
+            }
+            
+            placeButtonPulse();
+
+            setTimeout(function(){
+                introTxt.innerHTML = "Plaats het product";
+                introTxt.style.opacity = 1;
+            }, 300);
 
         } else {
 
