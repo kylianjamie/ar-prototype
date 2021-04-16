@@ -186,10 +186,7 @@ class App{
 
 			}
 		);
-            const introTxt = document.getElementById('intro-txt');
-            
-            introTxt.classList.add('opacity-100');
-            introTxt.classList.remove('opacity-0');
+            document.getElementById('intro-txt').style.opacity = 1;
 	}			
     
     initAR(){
