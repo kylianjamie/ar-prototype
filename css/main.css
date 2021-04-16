@@ -38,5 +38,5 @@
 }
 
 .pulse-shadow{
-    box-shadow: 0 4px 6px 0px rgba(174, 228, 237, 1), 0 2px 4px 0px rgba(174, 228, 237, 1)
+    box-shadow: 0 4px 6px 0px rgba(174, 228, 237, 1), 0 2px 4px 0px rgba(174, 228, 237, 0.6)
 }
