@@ -5,8 +5,6 @@ import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
 
 class App{
 	constructor(){
-        window.reticleInit = false;
-
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
@@ -127,32 +125,33 @@ class App{
             }
         }
 
-        const introTxt = document.getElementById('intro-txt');
-        if (window.reticleInit = true){
-            introTxt.style.opacity = 0;
+        // const introTxt = document.getElementById('intro-txt');
+
+        // function startPulse() {
+        //     introTxt.style.opacity = 0;
                 
-                window.waitingForPlacement = true;
+        //         window.waitingForPlacement = true;
 
-                function placeButtonPulse() {
-                    const placeBtn = document.getElementById('place-button');
-                    placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
+        //         function placeButtonPulse() {
+        //             const placeBtn = document.getElementById('place-button');
+        //             placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
 
-                    setTimeout(function() {
-                        placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-                    }, 600);
+        //             setTimeout(function() {
+        //                 placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
+        //             }, 600);
 
-                    if(window.waitingForPlacement = true){
-                        setTimeout(placeButtonPulse, 1200); 
-                    }
-                }
+        //             if(window.waitingForPlacement = true){
+        //                 setTimeout(placeButtonPulse, 1200); 
+        //             }
+        //         }
             
-            placeButtonPulse();
+        //     placeButtonPulse();
 
-            setTimeout(function(){
-                introTxt.innerHTML = "Plaats het product";
-                introTxt.style.opacity = 1;
-            }, 300);
-        }
+        //     setTimeout(function(){
+        //         introTxt.innerHTML = "Plaats het product";
+        //         introTxt.style.opacity = 1;
+        //     }, 300);
+        // }
 
     }
 	
@@ -302,6 +301,7 @@ class App{
         const hitTestResults = frame.getHitTestResults( this.hitTestSource );
 
         if ( hitTestResults.length ) {
+            testSomething();
 
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
@@ -310,16 +310,18 @@ class App{
             this.reticle.visible = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
 
-            window.reticleInit = true;
-
         } else {
-
             this.reticle.visible = false;
-
         }
 
     }
     
+    methods(){
+        function testSomething() {
+            console.log('Test function triggered');
+        }
+    }
+
 	render( timestamp, frame ) {
 
         if ( frame ) {
