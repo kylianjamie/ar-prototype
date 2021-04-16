@@ -186,7 +186,6 @@ class App{
 
 			}
 		);
-            document.getElementById('intro-txt').style.opacity = 1;
 	}			
     
     initAR(){
@@ -277,9 +276,12 @@ class App{
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
             const pose = hit.getPose( referenceSpace );
+            const introTxt = document.getElementById('intro-txt');
 
             this.reticle.visible = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
+
+            introTxt.style.opacity = 0;
 
         } else {
 
