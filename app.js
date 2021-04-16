@@ -280,6 +280,8 @@ class App{
             this.reticle.visible = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
 
+            console.log(this.reticle.matrix);
+
         } else {
 
             this.reticle.visible = false;
