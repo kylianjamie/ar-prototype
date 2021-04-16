@@ -283,7 +283,7 @@ class App{
 
             introTxt.style.opacity = 0;
             
-            this.waitingForPlacement = true;
+            window.waitingForPlacement = true;
 
             function placeButtonPulse() {
                 const placeBtn = document.getElementById('place-button');
@@ -293,7 +293,7 @@ class App{
                     placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
                 }, 600);
 
-                if(this.waitingForPlacement == true){
+                if(window.waitingForPlacement = true){
                      setTimeout(placeButtonPulse, 1200); 
                 }
             }
