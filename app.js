@@ -124,6 +124,33 @@ class App{
                 self.chair.rotation.y += deltaX / 100;
             }
         }
+
+        if (window.reticleInit = true){
+            introTxt.style.opacity = 0;
+                
+                window.waitingForPlacement = true;
+
+                function placeButtonPulse() {
+                    const placeBtn = document.getElementById('place-button');
+                    placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
+
+                    setTimeout(function() {
+                        placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
+                    }, 600);
+
+                    if(window.waitingForPlacement = true){
+                        setTimeout(placeButtonPulse, 1200); 
+                    }
+                }
+            
+            placeButtonPulse();
+
+            setTimeout(function(){
+                introTxt.innerHTML = "Plaats het product";
+                introTxt.style.opacity = 1;
+            }, 300);
+        }
+
     }
 	
     resize(){
@@ -272,38 +299,15 @@ class App{
         const hitTestResults = frame.getHitTestResults( this.hitTestSource );
 
         if ( hitTestResults.length ) {
-            
+
             const referenceSpace = this.renderer.xr.getReferenceSpace();
             const hit = hitTestResults[ 0 ];
             const pose = hit.getPose( referenceSpace );
             const introTxt = document.getElementById('intro-txt');
 
             this.reticle.visible = true;
+            window.reticleInit = true;
             this.reticle.matrix.fromArray( pose.transform.matrix );
-
-            introTxt.style.opacity = 0;
-            
-            window.waitingForPlacement = true;
-
-            function placeButtonPulse() {
-                const placeBtn = document.getElementById('place-button');
-                placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
-
-                setTimeout(function() {
-                    placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-                }, 600);
-
-                if(window.waitingForPlacement = true){
-                     setTimeout(placeButtonPulse, 1200); 
-                }
-            }
-            
-            placeButtonPulse();
-
-            setTimeout(function(){
-                introTxt.innerHTML = "Plaats het product";
-                introTxt.style.opacity = 1;
-            }, 300);
 
         } else {
 
