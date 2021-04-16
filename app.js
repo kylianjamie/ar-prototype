@@ -214,7 +214,7 @@ class App{
             currentSession = session;
 
             document.getElementById("ui").style.display = "flex";
-            document.getElementById("intro-text").style.opacity = 1;
+            document.getElementById("intro-txt").style.opacity = 1;
             
         }
 
