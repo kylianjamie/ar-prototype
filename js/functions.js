@@ -103,6 +103,8 @@ function addToCart() {
 
 addCartBtn.addEventListener('click', addToCart);
 
+let count = 0;
+
 function lekkerPik() {
     console.log('Lekker pik');
 }

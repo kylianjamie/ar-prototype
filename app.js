@@ -299,13 +299,12 @@ class App{
     
     getHitTestResults( frame ){
         const hitTestResults = frame.getHitTestResults( this.hitTestSource );
-        let count = 0;
 
         if ( hitTestResults.length ) {
             
             if (count == 0){
-                count = 1;
                 console.log(count);
+                count = 1;
                 lekkerPik();
             }
 
