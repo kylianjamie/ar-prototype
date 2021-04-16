@@ -5,6 +5,8 @@ import { LoadingBar } from '/libs/three/jsm/LoadingBar.js';
 
 class App{
 	constructor(){
+        window.reticleInit = false;
+
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
