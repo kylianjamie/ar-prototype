@@ -121,20 +121,5 @@ function toSecondIntro(){
 }
 
 function triggerPulse() {
-    // placeBtn.style.borderColor = 'rgba(174, 228, 237, 1)';
     placeBtn.classList.add('pulse-shadow');
-    placeBtn.classList.remove('shadow-md');
-
-    setTimeout(function() {
-        // placeBtn.style.borderColor = 'rgba(249, 250, 251, 1)';
-        placeBtn.classList.add('shadow-md');
-        placeBtn.classList.remove('pulse-shadow');
-
-    }, 900);
-
-    setTimeout(function() {
-        if (introStatus == 1){
-            triggerPulse();
-        }
-    }, 1800)
 }
