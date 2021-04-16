@@ -74,10 +74,9 @@ class App{
             if (self.chair===undefined) return;
             
             if (self.reticle.visible){
+                placeClick();
                 self.chair.position.setFromMatrixPosition( self.reticle.matrix );
                 self.chair.visible = true;
-
-                placeClick();
             }
         }
 
