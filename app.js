@@ -186,6 +186,10 @@ class App{
 
 			}
 		);
+            const introTxt = document.getElementById('intro-txt');
+            
+            introTxt.classList.add('opacity-100');
+            introTxt.classList.remove('opacity-0');
 	}			
     
     initAR(){
