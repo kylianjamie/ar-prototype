@@ -230,7 +230,7 @@ class App{
             }
 
             document.getElementById("ui").style.display = "none";
-            introStatus = 0;
+            resetVariables();
             
             self.renderer.setAnimationLoop( null );
 

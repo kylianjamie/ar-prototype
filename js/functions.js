@@ -119,18 +119,22 @@ function toSecondIntro(){
     }, 600);
 }
 
+let firstTime = true;
 function toThirdIntro(){
-    introStatus = 2;
-    placeBtn.classList.remove('pulse-shadow');
-    introTxt.style.opacity = 0;
-    setTimeout(function(){
-        introTxt.innerHTML = "Swipe links of rechts om het product te draaien";
-        introTxt.style.opacity = 1;
-    }, 600);
-
-    setTimeout(function() {
-        removeIntro();
-    }, 5000)
+    if (firstTime == true){
+            firstTime = false;
+            introStatus = 2;
+            placeBtn.classList.remove('pulse-shadow');
+            introTxt.style.opacity = 0;
+            setTimeout(function(){
+                introTxt.innerHTML = "Swipe links of rechts om het product te draaien";
+                introTxt.style.opacity = 1;
+            }, 600);
+        
+            setTimeout(function() {
+                removeIntro();
+            }, 5000)
+    }
 }
 
 let isTouched = false;
@@ -143,4 +147,10 @@ function removeIntro() {
             introTxt.innerHTML = "Beweeg de camera langzaam heen en weer";
         }, 300);
     }
+}
+
+function resetVariables() {
+    firstTime = true;
+    isTouched = false;
+    introStatus = 0;
 }
