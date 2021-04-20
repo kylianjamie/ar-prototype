@@ -198,8 +198,8 @@ class App{
         let uiElement = document.getElementById('ui');
 
         const sessionInit = {
-            requiredFeatures: [ 'hit-test' ],
-            optionalFeatures: ['dom-overlay'],
+            requiredFeatures: [ 'hit-test', 'dom-overlay' ],
+            // optionalFeatures: ['dom-overlay'],
             domOverlay: { root: uiElement }
         };
 
