@@ -56,10 +56,11 @@ class App{
 			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
                 if (supported){
-                    const collection = document.getElementsByClassName("ar-button");
-                    [...collection].forEach( el => {
-                        el.style.display = 'flex';
-                    });
+                    // const collection = document.getElementsByClassName("ar-button");
+                    // [...collection].forEach( el => {
+                    //     el.style.display = 'flex';
+                    // });
+                    document.getElementById('ar-button').classList.remove('hidden');
                 } else {
                     document.getElementById('not-supported').classList.remove('hidden');
                 }
