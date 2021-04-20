@@ -7,6 +7,8 @@ class App{
 	constructor(){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
+
+        container.classList.add('hidden');
         
         this.loadingBar = new LoadingBar();
         this.loadingBar.visible = false;
