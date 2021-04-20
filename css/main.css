@@ -63,3 +63,7 @@
 .h-1px{
     height: 1px;
 }
+
+#ar-icon{
+    transform: translateY(2px);
+}
