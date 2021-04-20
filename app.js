@@ -7,8 +7,9 @@ class App{
 	constructor(){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
+        container.setAttribute("id", "ar-canvas");
 
-        // container.classList.add('hidden');
+        container.classList.add('hidden');
         
         this.loadingBar = new LoadingBar();
         this.loadingBar.visible = false;
@@ -213,6 +214,8 @@ class App{
 
         
         function onSessionStarted( session ) {
+
+            document.getElementById('ar-canvas').classList.remove('hidden');
 
             session.addEventListener( 'end', onSessionEnded );
 
