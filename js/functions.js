@@ -163,3 +163,7 @@ function resetVariables() {
     isTouched = false;
     introStatus = 0;
 }
+
+function notSupported() {
+    console.log('huts');
+}

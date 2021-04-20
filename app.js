@@ -242,9 +242,7 @@ class App{
 
         if ( currentSession === null ) {
 
-            navigator.xr.requestSession( 'immersive-ar', sessionInit ).then( onSessionStarted ).catch(err => function() {
-                console.log('paniek');
-            });
+            navigator.xr.requestSession( 'immersive-ar', sessionInit ).then( onSessionStarted ).catch(err => notSupported());
 
         } else {
 
