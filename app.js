@@ -199,9 +199,9 @@ class App{
 
         const sessionInit = {
             
-            // requiredFeatures: [ 'hit-test', 'dom-overlay' ],
-            requiredFeatures: [ 'hit-test' ],
-            optionalFeatures: ['dom-overlay'],
+            requiredFeatures: [ 'hit-test', 'dom-overlay' ],
+            // requiredFeatures: [ 'hit-test' ],
+            // optionalFeatures: ['dom-overlay'],
             domOverlay: { root: uiElement }
         };
 
