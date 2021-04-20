@@ -221,8 +221,10 @@ class App{
             document.getElementById("ui").style.display = "flex";
             document.getElementById("intro-txt").style.opacity = 1;
 
-            console.log(currentSession.domOverlayState);
-            
+            if (!currentSession.domOverlayState){
+                currentSession.end();
+                notSupported();
+            }            
         }
 
         function onSessionEnded( ) {
