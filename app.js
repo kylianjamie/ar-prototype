@@ -65,7 +65,7 @@ class App{
 			} );
             
 		} else {
-            document.getElementById('not-supported').classList.remove('hidden');
+            notSupported();
         }
         
         const self = this;
