@@ -203,6 +203,8 @@ class App{
             domOverlay: { root: uiElement }
         };
 
+        console.log('test');
+
 
         
         function onSessionStarted( session ) {
