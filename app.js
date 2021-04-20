@@ -203,9 +203,7 @@ class App{
             domOverlay: { root: uiElement }
         };
 
-        console.log('test');
-
-
+        console.log(currentSession.domOverlayState);
         
         function onSessionStarted( session ) {
 
