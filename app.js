@@ -65,7 +65,7 @@ class App{
                     document.getElementById('not-supported').classList.remove('hidden');
                     console.log('not supported');
                 }
-			} );
+			} ).catch(err => console.log(err));
             
 		} 
         
