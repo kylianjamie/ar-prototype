@@ -167,7 +167,7 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			`armchair.gltf`,
+			`armchair.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.scene.add( gltf.scene );
