@@ -61,12 +61,12 @@ class App{
                     //     el.style.display = 'flex';
                     // });
                     document.getElementById('ar-button').classList.remove('hidden');
-                }
-			} ).catch(err => {
-                document.getElementById('not-supported').classList.remove('hidden');
-            });
+                } 
+			} );
             
-		} 
+		} else {
+            document.getElementById('not-supported').classList.remove('hidden');
+        }
         
         const self = this;
 
