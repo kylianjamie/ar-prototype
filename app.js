@@ -59,9 +59,6 @@ class App{
                     const collection = document.getElementsByClassName("ar-button");
                     [...collection].forEach( el => {
                         el.style.display = 'flex';
-
-                        console.log('huts');
-                        console.log(XRSession.prototype.domOverlayState);
                     });
                 }
 			} );
@@ -205,6 +202,8 @@ class App{
             optionalFeatures: ['dom-overlay'],
             domOverlay: { root: uiElement }
         };
+
+
         
         function onSessionStarted( session ) {
 
@@ -217,6 +216,8 @@ class App{
 
             document.getElementById("ui").style.display = "flex";
             document.getElementById("intro-txt").style.opacity = 1;
+
+            console.log(currentSession.domOverlayState);
             
         }
 
