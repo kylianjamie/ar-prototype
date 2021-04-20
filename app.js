@@ -156,7 +156,7 @@ class App{
         } );
     }
     
-	showChair(id){
+	showChair(){
         this.initAR();
         
 		const loader = new GLTFLoader( ).setPath(this.assetsPath);
@@ -167,7 +167,7 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			`chair${id}.glb`,
+			`armchair.gltf`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.scene.add( gltf.scene );
