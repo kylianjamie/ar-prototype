@@ -234,7 +234,7 @@ class App{
         }
 
         function onSessionEnded( ) {
-
+            document.getElementById('ar-canvas').classList.add('hidden');
             currentSession.removeEventListener( 'end', onSessionEnded );
 
             currentSession = null;

@@ -169,4 +169,5 @@ function notSupported() {
     document.getElementById('ar-button').classList.add('hidden');
     document.getElementById('not-supported').classList.remove('hidden');
     document.getElementById('not-supported').classList.add('flex', 'flex-col');
+    document.getElementById('ar-canvas').classList.add('hidden');
 }
