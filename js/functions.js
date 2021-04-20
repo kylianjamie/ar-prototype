@@ -167,5 +167,5 @@ function resetVariables() {
 function notSupported() {
     document.getElementById('ar-button').classList.add('hidden');
     document.getElementById('not-supported').classList.remove('hidden');
-    document.getElementById('not-supported').classList.add('flex');
+    document.getElementById('not-supported').classList.add('flex', 'flex-col');
 }
