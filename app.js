@@ -59,6 +59,9 @@ class App{
                     const collection = document.getElementsByClassName("ar-button");
                     [...collection].forEach( el => {
                         el.style.display = 'flex';
+
+                        console.log('huts');
+                        console.log(navigator.xr.domOverlayState);
                     });
                 }
 			} );
