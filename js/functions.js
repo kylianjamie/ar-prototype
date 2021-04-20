@@ -165,5 +165,5 @@ function resetVariables() {
 }
 
 function notSupported() {
-    console.log('huts');
+    document.getElementById('not-supported').classList.remove('hidden');
 }

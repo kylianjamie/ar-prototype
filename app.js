@@ -60,6 +60,8 @@ class App{
                     [...collection].forEach( el => {
                         el.style.display = 'flex';
                     });
+                } else {
+                    document.getElementById('not-supported').classList.remove('hidden');
                 }
 			} );
             
