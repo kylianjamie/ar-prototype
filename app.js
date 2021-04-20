@@ -61,6 +61,7 @@ class App{
                     //     el.style.display = 'flex';
                     // });
                     document.getElementById('ar-button').classList.remove('hidden');
+                    document.getElementById('ar-button').classList.add('flex');
                 } 
 			} );
             
