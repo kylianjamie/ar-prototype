@@ -61,7 +61,7 @@ class App{
                         el.style.display = 'flex';
 
                         console.log('huts');
-                        console.log(this.XRSession);
+                        console.log(XRSession);
                     });
                 }
 			} );
