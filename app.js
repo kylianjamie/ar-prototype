@@ -63,6 +63,7 @@ class App{
                     document.getElementById('ar-button').classList.remove('hidden');
                 } else {
                     document.getElementById('not-supported').classList.remove('hidden');
+                    console.log('not supported');
                 }
 			} );
             
