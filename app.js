@@ -230,7 +230,6 @@ class App{
             if (!currentSession.domOverlayState){
                 currentSession.end();
                 notSupported();
-                this.loadingBar.visible = false;
             }            
         }
 
